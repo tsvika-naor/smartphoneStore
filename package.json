@@ -9,7 +9,7 @@
     "react": "cd client\\react && npm start",
     "angular": "cd client\\dashboard && npm start",
     "dev": "concurrently \"npm run server\" \"npm run angular\" \"npm run react\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install -g angular-cli && npm i @angular-devkit/core && npm install --save symbol-observable && npm install --prefix dashboard  &&  npm run build --prefix dashboard"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm i @angular/cli && npm i @angular-devkit/core && npm install --save symbol-observable && npm install --prefix dashboard  &&  npm run build --prefix dashboard"
   },
   "keywords": [],
   "author": "",
