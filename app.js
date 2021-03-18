@@ -25,7 +25,6 @@ app.use("/api/user", userRoutes);
 app.use("/api/smartphone", smartphoneRoutes);
 // console.log(express.static("../server/client/react/")) 
 
-
 const server = http.createServer(app);
 
 // const io = socketIo(server
@@ -76,7 +75,7 @@ var usersCounter = 0;
     // })
 
 // });
-console.log(process.env.PORT)
+// console.log(process.env.PORT)
 const port = process.env.PORT || 5000
 
 if(process.env.NODE_ENV === 'production'){
@@ -84,7 +83,7 @@ if(process.env.NODE_ENV === 'production'){
     app.use(express.static('./dashboard/dist/angular'));
 
     app.get('*', (req,res) => {
-        res.sendFile(path.resolve(__dirname,'dashboard','dist','angular','index.html'));
+        res.sendFile(path.join(__dirname,'./dashboard/dist/angular/index.html'));
 
     })
 }
