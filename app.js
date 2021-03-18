@@ -1,15 +1,15 @@
-// const scrapingData = require('./scrapingData');
+// const scrapingData = require('./server/scrapingData');
 const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const socketIo = require('socket.io');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const orderRoutes = require('./routes/order');
-const userRoutes = require('./routes/user');
-const smartphoneRoutes = require('./routes/smartphone');
-const orderController = require('./controllers/order');
-const smartphoneController = require('./controllers/smartphone');
+const orderRoutes = require('./server/routes/order');
+const userRoutes = require('./server/routes/user');
+const smartphoneRoutes = require('./server/routes/smartphone');
+const orderController = require('./server/controllers/order');
+const smartphoneController = require('./server/controllers/smartphone');
 var path = require('path');
 const connectionString = "mongodb+srv://advanced_applications:HC4HlY2ygfLzRyfD@cluster0.hjlul.mongodb.net/node-angular-react";
 mongoose.connect(process.env._MONGODB_URI || connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -23,7 +23,7 @@ app.use(cors());
 app.use("/api/order", orderRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/smartphone", smartphoneRoutes);
-console.log(express.static("../client/react/")) 
+console.log(express.static("../server/client/react/")) 
 
 
 const server = http.createServer(app);
@@ -78,10 +78,10 @@ console.log(process.env.PORT)
 const port = process.env.PORT || 5000
 
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(path.join(__dirname,'./client/dashboard/dist/angular')));
+    app.use(express.static(path.join(__dirname,'./server/client/dashboard/dist/angular')));
 
     app.get('*', (req,res) => {
-        res.sendFile(path.resolve(path.join(__dirname,'./client/dashboart/angular','dist','index.html')));
+        res.sendFile(path.resolve(path.join(__dirname,'./server/client/dashboart/angular','dist','index.html')));
 
     })
 }
