@@ -9,7 +9,7 @@
     "react": "cd client\\react && npm start",
     "angular": "cd client\\dashboard && npm start",
     "dev": "concurrently \"npm run server\" \"npm run angular\" \"npm run react\"",
-    "heroku-postbuild": " NPM_CONFIG_PRODUCTION=false cd client\\dashboard && npm install && npm run build --prefix"
+    "heroku-postbuild": " NPM_CONFIG_PRODUCTION=false cd client\\dashboard && npm install --prefix && npm run build --prefix"
   },
   "keywords": [],
   "author": "",
