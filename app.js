@@ -82,10 +82,10 @@ if(process.env.NODE_ENV === 'production'){
 
     app.use(express.static('./dashboard/dist/angular'));
 
-    app.get('*', (req,res) => {
-        res.sendFile(path.join(__dirname,'./dashboard/dist/angular/index.html'));
+    // app.get('*', (req,res) => {
+    //     res.sendFile(path.join(__dirname,'./dashboard/dist/angular/index.html'));
 
-    })
+    // })
 }
 
 server.listen(port);
