@@ -82,7 +82,7 @@ if(process.env.NODE_ENV === 'production'){
     app.use(express.static('./dashboard/dist/angular'));
 
     app.get('*', (req,res) => {
-        res.sendFile(path.resolve(__dirname,'dashboart','dist','index.html'));
+        res.sendFile(path.resolve(__dirname,'dashboart','dist','angular','index.html'));
 
     })
 }
