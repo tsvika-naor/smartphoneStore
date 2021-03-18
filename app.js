@@ -78,10 +78,10 @@ console.log(process.env.PORT)
 const port = process.env.PORT || 5000
 
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(path.join(__dirname,'./server/client/dashboard/dist/angular')));
+    app.use(express.static(path.join(__dirname,'./dashboard/dist/angular')));
 
     app.get('*', (req,res) => {
-        res.sendFile(path.resolve(path.join(__dirname,'./server/client/dashboart/angular','dist','index.html')));
+        res.sendFile(path.resolve(path.join(__dirname,'dashboart','dist','index.html')));
 
     })
 }
