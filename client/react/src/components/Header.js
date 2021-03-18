@@ -3,15 +3,18 @@ import { useState, useEffect } from 'react'
 import './Header.css'
 function Header (props) {
 
+    console.log(props)
     const [isLoggedIn, setIsLoggedIn] = useState([]) // it was null at firstload 
-
+    const [items, setItems] = useState([]);
     useEffect(() => {
         if (props) {
             setIsLoggedIn(props.connectedUser)
         }
+        setItems(props.items)
     }, [props])
 
     function click () {
+        props.setItems(items)
         props.resetSearch(true)
     }
 

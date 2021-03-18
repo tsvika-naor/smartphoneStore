@@ -22,7 +22,7 @@ function App (props) {
 
   const [onLogout, setOnLogOut] = useState(false)
 
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem("cart")));
+  const [items, setItems] = useState([]);
 
   const [showResults, setShowResults] = useState(false);
 
@@ -45,9 +45,6 @@ function App (props) {
 
     if (JSON.parse(localStorage.getItem("cart")))
       setItems(JSON.parse(localStorage.getItem("cart")))
-    else {
-      setItems([])
-    }
 
   }, [])
 
@@ -68,9 +65,10 @@ function App (props) {
   const setSmartphones = (data) => {
     console.log(items)
     if (items.length > 0) {
-      const filterSmartphones = items.filter(item => item.smartphone.id !== data.smartphone.id);
-      setItems(filterSmartphones.concat(data));
-    } else {
+      const append = items.filter( item => item !== data )
+      setItems(append.concat(data));
+    }
+    else {
       setItems(items.concat(data))
     }
   }
@@ -78,7 +76,7 @@ function App (props) {
   return (
     <Router history={history}>
 
-      <Header resetSearch={resetSearch} connectedUser={connectedUser} setItems={(data) => setItems(data)} />
+      <Header resetSearch={resetSearch} connectedUser={connectedUser} setItems={(data) => setItems(data)} items={items}/>
 
       <Switch>
         {/* good! */}
